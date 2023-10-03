@@ -1,0 +1,185 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: lightskyblue;
+  scroll-behavior: smooth;
+
+}
+
+.nick-principal {
+  color: #000000;
+}
+
+button {
+  cursor: pointer;
+}
+
+button, input, select {
+  padding: 1em;
+  border-radius: 10px;
+  border: black 2px solid;
+  outline: 1px black solid ;
+}
+
+button:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+.errors {
+  text-align: center;
+  font-size: 1.5em;
+  color: rgb(0, 0, 0);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+/* ITEM CHAMPION */
+.item-champion {
+  width: 30px;
+  object-fit: contain;
+}
+/* ITEM CHAMPION */
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+/* CONTENEDOR - RANK USUARIO - NOMBRE DE SUMMONER - IMAGEN DEL ICONO - ETC */
+
+.summonername-main {
+display: flex;
+justify-content: space-evenly;
+margin: auto;
+background-color: rgb(32 29 29);
+max-width: 50em;
+text-align: center;
+}
+
+.summonername-div {
+ padding-top: 5em;
+}
+
+.profile-icon {
+  object-fit: contain;
+  width: 90px;
+  border-radius: 15px;
+}
+
+.contenedor-ranks {
+  display: flex;
+  gap: 4em;
+  align-items: center;
+}
+
+.small-wins-losses-wr {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagerank-lp-rank {
+  display: flex;
+    flex-direction: column;
+    padding: 3px 0px;
+    border-bottom: 1px solid;
+}
+
+/* CONTENEDOR - RANK USUARIO - NOMBRE DE SUMMONER - IMAGEN DEL ICONO - ETC */
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+
+/* CONTENEDOR - HEADER - DATA - GAME */
+
+.header-info-data-game {
+  gap: 3em;
+  display: flex;
+  justify-content: space-evenly;
+  color: #000000;
+}
+
+.header {
+  text-align: center;
+}
+
+.header > form  {
+  padding: 1em;
+}
+
+/* CONTENEDOR - HEADER - DATA - GAME */
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+/* CONTENEDOR / LISTA DE USUARIOS - MATCHES- KDA - WIN O LOSE - ICON CHAMP - MAIN - ETC */
+
+.section-participants-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.div-participants-info-1,
+.div-participants-info-2 {
+  display: flex;
+  border-bottom: 2px solid black; /* Asegúrate de que ambos tengan el mismo borde */
+  align-items: center;
+ 
+}
+
+
+.champion-icon {
+  width: 65px;
+  border-radius: 35%;
+}
+
+.kda {
+  display: flex;
+}
+
+.participant-summonername {
+  padding: 0em 1em;
+  color: grey;
+}
+
+
+.div-win-o-lose {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* CONTENEDOR / LISTA DE USUARIOS - MATCHES- KDA - WIN O LOSE - ICON CHAMP - MAIN - ETC */
+
+.next-back-pages {
+  padding-top: 1.3em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.arrow-button {
+  font-size: 1.2em; /* Tamaño de la fuente */
+  color: black;
+  padding: 0em 2em;
+  border-radius: 50px;
+}
+
+.arrow-button:hover {
+  scale: 1.2;
+}
+
+.actual-page {
+  color: #000000;
+  font-style: italic;
+  font-weight: bold;
+}
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+.champlevel-absolute {
+  position: absolute;
+}
