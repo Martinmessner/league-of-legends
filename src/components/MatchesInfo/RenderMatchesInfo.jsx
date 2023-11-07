@@ -16,8 +16,20 @@ function MatchesInfoSummoners() {
       {historyMatchGames.map((data) => {
         const { info } = data;
         console.log(info);
-        const { gameCreation, gameVersion, gameDuration, gameEndTimestamp } =
-          info;
+        const {
+          gameCreation,
+          gameVersion,
+          gameDuration,
+          gameEndTimestamp,
+          teams,
+        } = info;
+
+        console.log(teams);
+
+        for (let xdd of teams) {
+          const data = xdd.objectives['champion'];
+          console.log(data);
+        }
 
         const participants = info.participants;
 

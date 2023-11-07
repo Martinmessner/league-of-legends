@@ -5,6 +5,7 @@ import './index.css';
 import './condicionales.css';
 import './loading.css';
 import './Eyes.css';
+import './queries.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -181,5 +181,7 @@ text-align: center;
 /* ------------------------------------------------------------------------------------------------------------------------ */
 
 .champlevel-absolute {
-  position: absolute;
+  position: relative;
+  font-size: 1em;
+  font-weight: bold
 }

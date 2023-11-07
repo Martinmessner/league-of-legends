@@ -38,19 +38,19 @@ function MatchGroup({ participants, winGroup, summonerName, quantityItems }) {
                 />
               ))}
             </div>
-            <button onClick={ActivateToogle}>
+            <button className="toogle-button" onClick={ActivateToogle}>
               {toggle === false ? '🔽 Mostrar Mas' : '🔼 Ocultar'}
             </button>
           </h4>
-          <div>
+          <div className="info-aditional">
             <h4>
               KDA: {participant.kills}/
               <span className="deaths-red">{participant.deaths}</span>/
               {participant.assists}
             </h4>
             {toggle && (
-              <div>
-                <h5>Daño Total: {participant.totalDamageTaken}</h5>
+              <div className="info-aditional">
+                <h5>Daño Recibido: {participant.totalDamageTaken}</h5>
                 <h5>
                   Daño a Campeones: {participant.totalDamageDealtToChampions}
                 </h5>

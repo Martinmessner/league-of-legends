@@ -1,0 +1,26 @@
+@media (max-width: 605px){
+  
+    .div-participants-info-1  {
+      flex-direction: column;
+    }
+    .no-selected-username {
+        align-items: center;
+    }
+    .info-aditional {
+        text-align: center;
+    }
+    .toogle-button {
+        display: flex;
+        margin: auto;
+    }
+    .test-image {
+        width: 90px;
+    }
+    .header-info-data-game {
+        display: block;
+       text-align: center;
+    }
+    .contenedor-ranks {
+        gap: 1em;
+    }
+    }
