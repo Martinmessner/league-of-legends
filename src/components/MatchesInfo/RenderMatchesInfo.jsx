@@ -15,22 +15,15 @@ function MatchesInfoSummoners() {
     <>
       {historyMatchGames.map((data) => {
         const { info } = data;
+        const { teams } = info;
+
         console.log(info);
-        const {
-          gameCreation,
-          gameVersion,
-          gameDuration,
-          gameEndTimestamp,
-          teams,
-        } = info;
+        const { gameCreation, gameVersion, gameDuration, gameEndTimestamp } =
+          info;
 
         console.log(teams);
-
-        for (let xdd of teams) {
-          const data = xdd.objectives['champion'];
-          console.log(data);
-        }
-
+        const teamsKill = teams.map((data) => data.objectives);
+        console.log(teamsKill);
         const participants = info.participants;
 
         const firstGroup = participants.slice(0, 5);
@@ -42,7 +35,7 @@ function MatchesInfoSummoners() {
           <section key={info.gameId}>
             <section className="header-info-data-game">
               <h2>
-                {getDateCreationGame(gameCreation)},{' '}
+                {getDateCreationGame(gameCreation)},
                 {getHourExactlyGame(gameEndTimestamp)}.
               </h2>
               <h2>Duracion: {getMinutesDurationGame(gameDuration)} Minutos.</h2>
@@ -55,12 +48,42 @@ function MatchesInfoSummoners() {
               >
                 {winFirstGroup === true ? 'VICTORIA' : 'DERROTA'}
               </h3>
+
               <h3
                 className={winSecondGroup === true ? 'win-color' : 'lose-color'}
               >
                 {winSecondGroup === false ? 'DERROTA' : 'VICTORIA'}
               </h3>
             </div>
+            <section className="teamskills-section">
+              {teams.map((data, indexTemporal) => {
+                const { objectives } = data;
+
+                return (
+                  <div key={indexTemporal}>
+                    <div className="image-baron">
+                      <img src="/kill.svg" alt="Kills" width="16px"></img>
+                      <p>Kills Totales: {objectives.champion.kills}</p>
+                    </div>
+                    <div className="image-baron">
+                      <img src="/baron.svg" alt="Baron"></img>
+                      <p>Baron: {objectives.baron.kills}</p>
+                    </div>
+                    <div className="image-drake">
+                      <img src="/dragon.svg" alt="Dragones"></img>
+                      <p>Dragones: {objectives.dragon.kills}</p>
+                    </div>
+                    <div className="image-drake">
+                      <img src="/tower.svg" alt="Torres"></img>
+                      <p>Torres: {objectives.tower.kills}</p>
+                    </div>
+                    {objectives.dragon.first === true
+                      ? '1° Dragon Asesinado.'
+                      : false}
+                  </div>
+                );
+              })}
+            </section>
             <section key={info.gameId} className="section-participants-info">
               <MatchGroup
                 participants={firstGroup}
@@ -68,6 +91,7 @@ function MatchesInfoSummoners() {
                 summonerName={summonerName}
                 quantityItems={quantityItems}
               />
+
               <div className="test2">
                 <MatchGroup
                   participants={secondGroup}

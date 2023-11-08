@@ -47,8 +47,22 @@ button:hover {
   width: 30px;
   object-fit: contain;
 }
-/* ITEM CHAMPION */
+/* ------------------------------------------------------------------------------------------------------------------------ */
 
+/*  TEAMS KILLS SECTION AND IMAGES ALL */
+.teamskills-section {
+  display: flex;
+  justify-content: space-around;
+  color: #000000;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.image-baron, .image-drake {
+  display: flex;
+}
+.image-baron > img, .image-drake > img {
+  width: 30px;
+}
 /* ------------------------------------------------------------------------------------------------------------------------ */
 
 /* CONTENEDOR - RANK USUARIO - NOMBRE DE SUMMONER - IMAGEN DEL ICONO - ETC */
