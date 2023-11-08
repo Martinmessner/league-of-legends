@@ -60,27 +60,35 @@ function MatchesInfoSummoners() {
                 const { objectives } = data;
 
                 return (
-                  <div key={indexTemporal}>
+                  <section
+                    className="section-images-teamskill"
+                    key={indexTemporal}
+                  >
                     <div className="image-baron">
-                      <img src="/kill.svg" alt="Kills" width="16px"></img>
-                      <p>Kills Totales: {objectives.champion.kills}</p>
+                      <img
+                        src="/kill.svg"
+                        alt="Asesinatos"
+                        title="Asesinatos"
+                      ></img>
+                      <p> {objectives.champion.kills}</p>
                     </div>
                     <div className="image-baron">
-                      <img src="/baron.svg" alt="Baron"></img>
-                      <p>Baron: {objectives.baron.kills}</p>
+                      <img src="/baron.svg" alt="Baron" title="Baron"></img>
+                      <p> {objectives.baron.kills}</p>
                     </div>
                     <div className="image-drake">
-                      <img src="/dragon.svg" alt="Dragones"></img>
-                      <p>Dragones: {objectives.dragon.kills}</p>
+                      <img
+                        src="/dragon.svg"
+                        alt="Dragones"
+                        title="Dragones"
+                      ></img>
+                      <p> {objectives.dragon.kills}</p>
                     </div>
                     <div className="image-drake">
-                      <img src="/tower.svg" alt="Torres"></img>
-                      <p>Torres: {objectives.tower.kills}</p>
+                      <img src="/tower.svg" alt="Torres" title="Torres"></img>
+                      <p> {objectives.tower.kills}</p>
                     </div>
-                    {objectives.dragon.first === true
-                      ? '1° Dragon Asesinado.'
-                      : false}
-                  </div>
+                  </section>
                 );
               })}
             </section>

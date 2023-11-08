@@ -63,6 +63,10 @@ button:hover {
 .image-baron > img, .image-drake > img {
   width: 30px;
 }
+.section-images-teamskill {
+  display: flex;
+  gap: .2em;
+}
 /* ------------------------------------------------------------------------------------------------------------------------ */
 
 /* CONTENEDOR - RANK USUARIO - NOMBRE DE SUMMONER - IMAGEN DEL ICONO - ETC */
