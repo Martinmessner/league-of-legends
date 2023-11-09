@@ -4,7 +4,7 @@
       flex-direction: column;
     }
     .no-selected-username {
-        align-items: center;
+        text-align: center;
     }
     .info-aditional {
         text-align: center;
@@ -22,6 +22,12 @@
     }
     .contenedor-ranks {
         gap: 1em;
+    }
+    .profile-icon {
+        width: 60px;
+    }
+    .summonername-div > p {
+        font-size: .9em;
     }
     }
 
