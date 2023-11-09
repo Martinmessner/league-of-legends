@@ -23,7 +23,9 @@
     }
     .header-info-data-game {
         display: block;
-       text-align: center;
+        text-align: center;
+        font-size: .7em;
+        padding-top: 0.5em;
     }
     .contenedor-ranks {
         gap: 1em;
