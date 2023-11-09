@@ -14,7 +14,12 @@
         margin: auto;
     }
     .test-image {
-        width: 90px;
+        width: 80px;
+    }
+    .contenedor-ranks-article > p {
+        font-size: .8em;
+        font-weight: bold;
+    
     }
     .header-info-data-game {
         display: block;
