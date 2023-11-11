@@ -22,12 +22,11 @@ function MatchesInfoSummoners() {
           info;
 
         console.log(teams);
-        const teamsKill = teams.map((data) => data.objectives);
-        console.log(teamsKill);
-        const participants = info.participants;
 
+        const participants = info.participants;
         const firstGroup = participants.slice(0, 5);
         const secondGroup = participants.slice(5, 10);
+
         const winFirstGroup = firstGroup[0].win;
         const winSecondGroup = secondGroup[0].win;
 
@@ -100,14 +99,12 @@ function MatchesInfoSummoners() {
                 quantityItems={quantityItems}
               />
 
-              <div className="test2">
-                <MatchGroup
-                  participants={secondGroup}
-                  winGroup={winSecondGroup}
-                  summonerName={summonerName}
-                  quantityItems={quantityItems}
-                />
-              </div>
+              <MatchGroup
+                participants={secondGroup}
+                winGroup={winSecondGroup}
+                summonerName={summonerName}
+                quantityItems={quantityItems}
+              />
             </section>
           </section>
         );
