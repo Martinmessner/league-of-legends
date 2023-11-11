@@ -50,3 +50,10 @@
         width: 33px;
        }
       }
+
+      @media screen and (min-width: 394px) and (max-width: 483px) {
+        /* Tus estilos aquí */
+       .item-champion {
+        width: 23px;
+       }
+      }
