@@ -43,3 +43,10 @@
             padding: 0em 4em;
         }
     }
+
+    @media screen and (min-width: 328px) and (max-width: 393px) {
+        /* Tus estilos aquí */
+       .item-champion {
+        width: 33px;
+       }
+      }
