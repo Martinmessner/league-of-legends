@@ -17,22 +17,6 @@ body {
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
 }
-
-ESTE ES EL FONDO DEL MAPA DEL LOL:
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: #d1d1d1;
-  background-color: rgb(0, 0, 0);
-  scroll-behavior: smooth;
-  height: 100vh;
-  background-size: 300% 300%;
-  animation: gradientAnimation 10s ease infinite;
-  background-image: url("/mapa-lol.webp");
-  background-repeat: no-repeat;
-  background-size: contain;
-  
-}
 */
 
 :root {
