@@ -89,7 +89,10 @@ function GetSummonerName() {
   return (
     <>
       <header className="header">
-        <h1 className="nick-principal">Busca tu Nombre de Invocador❗🔅</h1>
+        <div>
+          <h1 className="nick-principal">Busca tu Nombre de Invocador</h1>
+          <img src="/lol.svg" alt="lol" width="40px"></img>
+        </div>
         <form onSubmit={handleSubmit}>
           {regionWorld ? (
             <select onChange={handleChangeRegion}>
