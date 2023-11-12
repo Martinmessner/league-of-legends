@@ -36,6 +36,12 @@
     .summonername-div > p {
         font-size: .9em;
     }
+    :root {
+        height: 100vh;
+  background:linear-gradient(45deg, #553679, #3c1f44, #332a5c);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+    }
     }
 
     @media (min-width: 1060px) {
