@@ -110,7 +110,7 @@ function GetSummonerName() {
           <input
             onChange={handleChange}
             type="text"
-            placeholder="Escribe tu usuario de lol:"
+            placeholder="Invocador..."
             value={valueSummoner}
           ></input>
           <button disabled={disabled}>Buscar</button>
