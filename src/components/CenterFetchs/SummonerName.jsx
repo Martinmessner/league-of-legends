@@ -90,7 +90,7 @@ function GetSummonerName() {
     <>
       <header className="header">
         <div>
-          <h1 className="nick-principal">Busca tu Nombre de Invocador</h1>
+          <h1 className="nick-principal">Busca tu Nombre de Invocador de </h1>
           <img src="/lol.svg" alt="lol" width="40px"></img>
         </div>
         <form onSubmit={handleSubmit}>
