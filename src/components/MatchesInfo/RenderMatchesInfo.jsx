@@ -9,19 +9,14 @@ import MatchGroup from '../MatchesWinOLose/MatchGroup';
 function MatchesInfoSummoners() {
   const { historyMatchGames, summonerName, quantityItems } = useSummonerStore();
 
-  console.log(historyMatchGames);
-
   return (
     <>
       {historyMatchGames.map((data) => {
         const { info } = data;
         const { teams } = info;
 
-        console.log(info);
         const { gameCreation, gameVersion, gameDuration, gameEndTimestamp } =
           info;
-
-        console.log(teams);
 
         const participants = info.participants;
         const firstGroup = participants.slice(0, 5);

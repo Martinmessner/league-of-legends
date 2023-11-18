@@ -11,6 +11,6 @@ export async function leagueExp_v4() {
     `https://la2.api.riotgames.com/lol/league-exp/v4/entries/${CATEGORY_RANKED}/${RANGE_SUMMONER}/${RANGE_SUMMONER_NUMBER}?api_key=${API_KEY_VITE}`
   );
   const res = await response.json();
-  console.log(res);
+
   return res;
 }

@@ -11,8 +11,6 @@ function GetMatchesPuuid() {
     modifyContinentSelected,
   } = useSummonerStore();
 
-  console.log(modifyContinentSelected);
-
   useEffect(() => {
     async function fetchAllData() {
       const matchesDataArray = [];

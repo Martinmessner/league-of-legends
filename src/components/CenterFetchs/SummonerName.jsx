@@ -25,8 +25,6 @@ function GetSummonerName() {
     setmodifyContinentSelected,
   } = useSummonerStore();
 
-  console.log(selectedRegion);
-
   const fetchSummonerName = async () => {
     Setloading(true);
     toggleDisabled();
@@ -71,11 +69,11 @@ function GetSummonerName() {
 
       if (keys.includes(selectedRegion1)) {
         const valueToString = value.toString();
-        console.log(`La región "${selectedRegion1}": ${value}.`);
+
         setselectedRegionWorld(valueToString);
       }
     }
-    console.log(regionsContinents);
+
     const searchUniqueRegion = Object.entries(regionsContinents);
     searchUniqueRegion.some((data) => {
       const [key, value] = data;

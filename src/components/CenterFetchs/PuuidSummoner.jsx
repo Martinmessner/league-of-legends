@@ -19,9 +19,6 @@ function GetPuuidSummoner() {
   const { puuid } = summonerName;
   const [loading, setLoading] = useState(false);
 
-  console.log(modifyContinentSelected);
-  console.log(puuidSummonerName);
-
   async function fetchMatchesForPage(page) {
     try {
       setLoading(true);
@@ -29,7 +26,6 @@ function GetPuuidSummoner() {
       const response = await fetch(
         `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${startIndex}&count=${pagination}&api_key=${API_KEY_VITE}`
       );
-      console.log(response);
 
       const puuidName = await response.json();
       setPuuidSummonerName(puuidName);

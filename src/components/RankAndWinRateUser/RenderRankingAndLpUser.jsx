@@ -6,8 +6,6 @@ import { TypeQueueRanked } from '../helpers/TypesQueueRanked';
 function RankingAndPointsDivisionUser() {
   const { getUserRankAndLP } = useSummonerStore();
 
-  console.log(getUserRankAndLP);
-
   return (
     <section className="contenedor-ranks">
       {getUserRankAndLP.length > 0 && (
