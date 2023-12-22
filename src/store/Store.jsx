@@ -4,6 +4,7 @@ const useSummonerStore = create((set) => ({
   pagination: 4,
   // items de cada jugador
   quantityItems: [0, 1, 2, 3, 4, 5, 6],
+  participantIdsItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   currentPage: 1,
   summonerName: [],
   puuidSummonerName: [],
@@ -74,6 +75,11 @@ const useSummonerStore = create((set) => ({
     asia: 'Japon, Korea',
   },
   modifyContinentSelected: '',
+  TimelineItemId: [],
+  itemsPurchasedFiltered: [],
+  setItemsPurchasedFiltered: (itemsFiltered) =>
+    set({ itemsPurchasedFiltered: itemsFiltered }),
+  setTimelineItemId: (timelineItem) => set({ TimelineItemId: timelineItem }),
   setmodifyContinentSelected: (modifyContinent) =>
     set({ modifyContinentSelected: modifyContinent }),
   setselectedRegionWorld: (selected) => set({ selectedRegion: selected }),

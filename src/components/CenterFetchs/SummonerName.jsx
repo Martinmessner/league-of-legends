@@ -23,7 +23,10 @@ function GetSummonerName() {
     selectedRegion,
     regionsContinents,
     setmodifyContinentSelected,
+    //modifyContinentSelected,
   } = useSummonerStore();
+
+  //  `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
 
   const fetchSummonerName = async () => {
     Setloading(true);

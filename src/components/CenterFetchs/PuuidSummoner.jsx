@@ -29,7 +29,6 @@ function GetPuuidSummoner() {
 
       const puuidName = await response.json();
       setPuuidSummonerName(puuidName);
-
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setLoading(false);
     } catch (error) {
