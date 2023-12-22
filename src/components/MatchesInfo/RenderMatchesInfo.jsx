@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import useSummonerStore from '../../store/Store';
 import {
   getDateCreationGame,
@@ -8,6 +9,17 @@ import MatchGroup from '../MatchesWinOLose/MatchGroup';
 
 function MatchesInfoSummoners() {
   const { historyMatchGames, summonerName, quantityItems } = useSummonerStore();
+  const [expandedParticipants, setExpandedParticipants] = useState([]);
+
+  const handleToggle = (participantId) => {
+    if (expandedParticipants.includes(participantId)) {
+      setExpandedParticipants((prev) =>
+        prev.filter((id) => id !== participantId)
+      );
+    } else {
+      setExpandedParticipants((prev) => [...prev, participantId]);
+    }
+  };
 
   return (
     <>
@@ -33,7 +45,6 @@ function MatchesInfoSummoners() {
                 {getHourExactlyGame(gameEndTimestamp)}.
               </h2>
               <h2>Duracion: {getMinutesDurationGame(gameDuration)} Minutos.</h2>
-
               <h2>Version: {gameVersion.slice(0, 5)}.</h2>
             </section>
             <div className="div-win-o-lose">
@@ -92,6 +103,8 @@ function MatchesInfoSummoners() {
                 winGroup={winFirstGroup}
                 summonerName={summonerName}
                 quantityItems={quantityItems}
+                expandedParticipants={expandedParticipants}
+                onToggle={handleToggle}
               />
 
               <MatchGroup
@@ -99,6 +112,8 @@ function MatchesInfoSummoners() {
                 winGroup={winSecondGroup}
                 summonerName={summonerName}
                 quantityItems={quantityItems}
+                expandedParticipants={expandedParticipants}
+                onToggle={handleToggle}
               />
             </section>
           </section>

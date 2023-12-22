@@ -4,19 +4,20 @@ import ImgItemsChampionsSummoners from '../helpers/ImageItemsChamps';
 import TimelinesSummoner from '../TimelinesItemsSummoner/TimelinesIdItems';
 import useSummonerStore from '../../store/Store';
 
-function MatchGroup({ participants, winGroup, quantityItems }) {
-  const [toggle, Settoogle] = useState(false);
-  const [timelinesToogle, SetTimelinesToogle] = useState(false);
-  const [test, Settest] = useState([]);
+function MatchGroup({
+  participants,
+  winGroup,
+  quantityItems,
+  expandedParticipants,
+  onToggle,
+}) {
+  const [timelinesToogle, setTimelinesToogle] = useState(false);
+  const [test, setTest] = useState([]);
   const { itemsPurchasedFiltered } = useSummonerStore();
 
-  const ActivateToogle = () => {
-    Settoogle((prevToggle) => !prevToggle);
-  };
-  console.log(test);
-
   const ToogleTimeLines = (data) => {
-    SetTimelinesToogle(!timelinesToogle);
+    onToggle(data);
+    setTimelinesToogle(!timelinesToogle);
 
     const testPrueba = itemsPurchasedFiltered.map((dataInfo) =>
       dataInfo.map((dataInfo) => dataInfo.map((data) => data))
@@ -35,7 +36,7 @@ function MatchGroup({ participants, winGroup, quantityItems }) {
         .filter((elements) => elements.length > 0)
     );
 
-    Settest(testRender[0]);
+    setTest(testRender[0]);
   };
 
   return (
@@ -62,8 +63,9 @@ function MatchGroup({ participants, winGroup, quantityItems }) {
           <div
             className={`${
               winGroup === true ? 'victoria' : 'derrota'
-            }  div-participants-info-1`}
+            }  div-participants-info-1 `}
             key={puuid}
+            onClick={() => onToggle(participantId)}
           >
             <ImageChampionSummoner imageChampion={championName} />
             <small className="champlevel-absolute">{champLevel}</small>
@@ -83,8 +85,13 @@ function MatchGroup({ participants, winGroup, quantityItems }) {
                   />
                 ))}
               </div>
-              <button className="toogle-button" onClick={ActivateToogle}>
-                {toggle === false ? '🔽 Mostrar Mas' : '🔼 Ocultar'}
+              <button
+                className="toogle-button"
+                onClick={() => onToggle(participantId)}
+              >
+                {expandedParticipants.includes(participantId)
+                  ? '🔼 Ocultar'
+                  : '🔽 Mostrar Mas'}
               </button>
               <button onClick={() => ToogleTimeLines(participantId)}>
                 Items :D
@@ -96,14 +103,14 @@ function MatchGroup({ participants, winGroup, quantityItems }) {
                 KDA: {kills}/<span className="deaths-red">{deaths}</span>/
                 {assists}
               </h4>
-              {toggle && (
+              {expandedParticipants.includes(participantId) && (
                 <div className="info-aditional">
                   <h5>Daño Recibido: {totalDamageTaken}</h5>
                   <h5>Daño a Campeones: {totalDamageDealtToChampions}</h5>
                   <h5>Subditos: {totalMinionsKilled}</h5>
                   <h5>Pinks/Control Ward: {visionWardsBoughtInGame}</h5>
                   <h5>Wards Destroy: {wardsKilled}</h5>
-                  <h5>Wads Puestas: {wardsPlaced}</h5>
+                  <h5>Wards Puestas: {wardsPlaced}</h5>
                 </div>
               )}
 
@@ -111,19 +118,17 @@ function MatchGroup({ participants, winGroup, quantityItems }) {
                 <div className="image-timelines-items">
                   {test.length > 0
                     ? test.map((data) =>
-                        data.map((element) => (
-                          <>
-                            <section>
-                              <ImgItemsChampionsSummoners
-                                key={element.participantId}
-                                idItem={element.itemId}
-                              />
-                              <p>{element.timestamp}</p>
-                            </section>
-                          </>
+                        data.map((element, index) => (
+                          <section key={index}>
+                            <ImgItemsChampionsSummoners
+                              key={element.participantId}
+                              idItem={element.itemId}
+                            />
+                            <p>{element.timestamp}</p>
+                          </section>
                         ))
                       )
-                    : false}
+                    : null}
                 </div>
               )}
             </div>
