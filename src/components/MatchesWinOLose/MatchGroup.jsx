@@ -93,10 +93,6 @@ function MatchGroup({
                   ? '🔼 Ocultar'
                   : '🔽 Mostrar Mas'}
               </button>
-              <button onClick={() => ToogleTimeLines(participantId)}>
-                Items :D
-                {timelinesToogle === true ? <TimelinesSummoner /> : null}
-              </button>
             </h4>
             <div className="info-aditional">
               <h4>
