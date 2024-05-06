@@ -23,17 +23,18 @@ function GetSummonerName() {
     selectedRegion,
     regionsContinents,
     setmodifyContinentSelected,
-    //modifyContinentSelected,
+    modifyContinentSelected,
   } = useSummonerStore();
 
   //  `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
 
+  //  `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${valueSummoner}?api_key=${API_KEY_VITE}`
   const fetchSummonerName = async () => {
     Setloading(true);
     toggleDisabled();
     try {
       const response = await fetch(
-        `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${valueSummoner}?api_key=${API_KEY_VITE}`
+        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
       );
 
       const data = await response.json();
