@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import ImageChampionSummoner from '../helpers/ImageChampions';
-import ImgItemsChampionsSummoners from '../helpers/ImageItemsChamps';
-import TimelinesSummoner from '../TimelinesItemsSummoner/TimelinesIdItems';
-import useSummonerStore from '../../store/Store';
+import { useState } from "react";
+import ImageChampionSummoner from "../helpers/ImageChampions";
+import ImgItemsChampionsSummoners from "../helpers/ImageItemsChamps";
+import TimelinesSummoner from "../TimelinesItemsSummoner/TimelinesIdItems";
+import useSummonerStore from "../../store/Store";
 
 function MatchGroup({
   participants,
@@ -17,7 +17,7 @@ function MatchGroup({
 
   const [timelinesToogleMap, setTimelinesToogleMap] = useState({});
 
-  const ToogleTimeLines = (data, summoner) => {
+  const ToogleTimeLines = (data) => {
     onToggle(data);
 
     // Toggle timelinesToogle for the specific participant
@@ -75,7 +75,7 @@ function MatchGroup({
         return (
           <div
             className={`${
-              winGroup === true ? 'victoria' : 'derrota'
+              winGroup === true ? "victoria" : "derrota"
             }  div-participants-info-1 `}
             key={puuid}
             onClick={() => onToggle(participantId)}
@@ -85,8 +85,8 @@ function MatchGroup({
             <h4
               className={`${
                 summonerName === summonerName.name
-                  ? 'colorunico'
-                  : 'no-selected-username'
+                  ? "colorunico"
+                  : "no-selected-username"
               } participant-summonername`}
             >
               {summonerName}
@@ -103,8 +103,8 @@ function MatchGroup({
                 onClick={() => onToggle(participantId)}
               >
                 {expandedParticipants.includes(participantId)
-                  ? '🔼 Ocultar'
-                  : '🔽 Mostrar Mas'}
+                  ? "🔼 Ocultar"
+                  : "🔽 Mostrar Mas"}
               </button>
               <button
                 onClick={() => ToogleTimeLines(participantId, summonerName)}

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import useSummonerStore from '../../store/Store';
-import RankingAndPointsDivisionUser from '../RankAndWinRateUser/RenderRankingAndLpUser';
-import { TimeLoading } from '../helpers/LoadingRender';
+import { useState, useEffect } from "react";
+import useSummonerStore from "../../store/Store";
+import RankingAndPointsDivisionUser from "../RankAndWinRateUser/RenderRankingAndLpUser";
+import { TimeLoading } from "../helpers/LoadingRender";
 
 const API_KEY_VITE = import.meta.env.VITE_API_KEY;
 
@@ -29,7 +29,7 @@ function GetRankTierSummonerName() {
       setLoading(false);
       setIsSearching(false);
     } catch (error) {
-      Seterror('Error en el Servidor');
+      Seterror("Error en el Servidor");
       setIsSearching(false);
     }
   };

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import useSummonerStore from '../../store/Store';
-import MatchesInfoSummoners from '../MatchesInfo/RenderMatchesInfo';
-import { TimeLoading } from '../helpers/LoadingRender';
+import { useEffect, useState } from "react";
+import useSummonerStore from "../../store/Store";
+import MatchesInfoSummoners from "../MatchesInfo/RenderMatchesInfo";
+import { TimeLoading } from "../helpers/LoadingRender";
 
 const API_KEY_VITE = import.meta.env.VITE_API_KEY;
 

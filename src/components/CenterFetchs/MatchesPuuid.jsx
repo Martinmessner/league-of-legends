@@ -1,5 +1,5 @@
-import useSummonerStore from '../../store/Store';
-import { useEffect } from 'react';
+import useSummonerStore from "../../store/Store";
+import { useEffect } from "react";
 
 const API_KEY_VITE = import.meta.env.VITE_API_KEY;
 
@@ -23,7 +23,7 @@ function GetMatchesPuuid() {
           const data = await url.json();
           matchesDataArray.push(data);
         } catch (error) {
-          Seterror('No Tiene Partidas Disponibles.');
+          Seterror("No Tiene Partidas Disponibles.");
         }
       }
       setHistoryMatchGames(matchesDataArray);

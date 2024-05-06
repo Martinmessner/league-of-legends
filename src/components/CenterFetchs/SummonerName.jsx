@@ -1,8 +1,8 @@
-import useSummonerStore from '../../store/Store';
-import GetPuuidSummoner from './PuuidSummoner';
-import RenderSummonerName from '../RenderSummoner/RenderSummoner';
-import ErrorMessagesAlert from '../helpers/ErrorMessages';
-import { LoadingOn } from '../helpers/LoadingRender';
+import useSummonerStore from "../../store/Store";
+import GetPuuidSummoner from "./PuuidSummoner";
+import RenderSummonerName from "../RenderSummoner/RenderSummoner";
+import ErrorMessagesAlert from "../helpers/ErrorMessages";
+import { LoadingOn } from "../helpers/LoadingRender";
 
 const API_KEY_VITE = import.meta.env.VITE_API_KEY;
 
@@ -23,24 +23,26 @@ function GetSummonerName() {
     selectedRegion,
     regionsContinents,
     setmodifyContinentSelected,
-    //modifyContinentSelected,
+    modifyContinentSelected,
   } = useSummonerStore();
 
-  //  `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
+  //  ``https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
+
+  // `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${valueSummoner}?api_key=${API_KEY_VITE}`
 
   const fetchSummonerName = async () => {
     Setloading(true);
     toggleDisabled();
     try {
       const response = await fetch(
-        `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${valueSummoner}?api_key=${API_KEY_VITE}`
+        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
       );
 
       const data = await response.json();
       setSummonerName(data);
     } catch (err) {
-      Seterror('Error al obtener los datos del invocador.');
-      setSummonerName('');
+      Seterror("Error al obtener los datos del invocador.");
+      setSummonerName("");
     } finally {
       toggleDisabled();
       Setloading(false);
@@ -54,12 +56,12 @@ function GetSummonerName() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (valueSummoner.trim() === '') {
-      Seterror('No has ingresado nada, intentalo nuevamente.');
+    if (valueSummoner.trim() === "") {
+      Seterror("No has ingresado nada, intentalo nuevamente.");
     } else {
       fetchSummonerName();
-      SetvalueSummoner('');
-      Seterror('');
+      SetvalueSummoner("");
+      Seterror("");
     }
   };
 
@@ -80,7 +82,7 @@ function GetSummonerName() {
     const searchUniqueRegion = Object.entries(regionsContinents);
     searchUniqueRegion.some((data) => {
       const [key, value] = data;
-      const countries = value.split(', ');
+      const countries = value.split(", ");
       if (countries.includes(selectedRegion1)) {
         setmodifyContinentSelected(key);
       }
