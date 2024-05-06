@@ -10,14 +10,21 @@ function MatchGroup({
   quantityItems,
   expandedParticipants,
   onToggle,
+  totalParticipants,
 }) {
-  const [timelinesToogle, setTimelinesToogle] = useState(false);
   const [test, setTest] = useState([]);
   const { itemsPurchasedFiltered } = useSummonerStore();
 
-  const ToogleTimeLines = (data) => {
+  const [timelinesToogleMap, setTimelinesToogleMap] = useState({});
+
+  const ToogleTimeLines = (data, summoner) => {
     onToggle(data);
-    setTimelinesToogle(!timelinesToogle);
+
+    // Toggle timelinesToogle for the specific participant
+    setTimelinesToogleMap((prevMap) => ({
+      ...prevMap,
+      [data]: !prevMap[data],
+    }));
 
     const testPrueba = itemsPurchasedFiltered.map((dataInfo) =>
       dataInfo.map((dataInfo) => dataInfo.map((data) => data))
@@ -29,7 +36,13 @@ function MatchGroup({
           info
             .map((element) => {
               const { participantId, itemId, timestamp, type } = element;
-              return { participantId, itemId, timestamp, type };
+
+              return {
+                participantId,
+                itemId,
+                timestamp,
+                type,
+              };
             })
             .filter((number) => number.participantId === data)
         )
@@ -93,6 +106,184 @@ function MatchGroup({
                   ? '🔼 Ocultar'
                   : '🔽 Mostrar Mas'}
               </button>
+              <button
+                onClick={() => ToogleTimeLines(participantId, summonerName)}
+              >
+                Items :D
+                {timelinesToogleMap[participantId] ? (
+                  <TimelinesSummoner />
+                ) : null}
+              </button>
+            </h4>
+            <div className="info-aditional">
+              <h4>
+                KDA: {kills}/<span className="deaths-red">{deaths}</span>/
+                {assists}
+              </h4>
+              {expandedParticipants.includes(participantId) && (
+                <div className="info-aditional">
+                  <h5>Daño Recibido: {totalDamageTaken}</h5>
+                  <h5>Daño a Campeones: {totalDamageDealtToChampions}</h5>
+                  <h5>Subditos: {totalMinionsKilled}</h5>
+                  <h5>Pinks/Control Ward: {visionWardsBoughtInGame}</h5>
+                  <h5>Wards Destroy: {wardsKilled}</h5>
+                  <h5>Wards Puestas: {wardsPlaced}</h5>
+                </div>
+              )}
+
+              {timelinesToogleMap[participantId] && (
+                <div className="image-timelines-items">
+                  {test.length > 0
+                    ? test.map((data) =>
+                        data.map((element, index) => (
+                          <section key={index}>
+                            <ImgItemsChampionsSummoners
+                              key={element.participantId}
+                              idItem={element.itemId}
+                            />
+                            <p>{element.timestamp}</p>
+                          </section>
+                        ))
+                      )
+                    : null}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </section>
+  );
+}
+
+export default MatchGroup;
+
+/* 
+
+CODIGO VIEJO QUE REENDERIZA TODOS LOS ITEMS,LA FORMA MALA
+
+import { useState } from 'react';
+import ImageChampionSummoner from '../helpers/ImageChampions';
+import ImgItemsChampionsSummoners from '../helpers/ImageItemsChamps';
+import TimelinesSummoner from '../TimelinesItemsSummoner/TimelinesIdItems';
+import useSummonerStore from '../../store/Store';
+
+function MatchGroup({
+  participants,
+  winGroup,
+  quantityItems,
+  expandedParticipants,
+  onToggle,
+  totalParticipants,
+}) {
+  const [timelinesToogle, setTimelinesToogle] = useState(false);
+  const [test, setTest] = useState([]);
+  const { itemsPurchasedFiltered } = useSummonerStore();
+
+  const ToogleTimeLines = (data, summoner) => {
+    onToggle(data);
+    setTimelinesToogle(!timelinesToogle);
+
+    const testPrueba = itemsPurchasedFiltered.map((dataInfo) =>
+      dataInfo.map((dataInfo) => dataInfo.map((data) => data))
+    );
+
+    // Devuelve todos los nombres de usuario !
+    const testParticipants = totalParticipants.map(
+      (participant) => participant.summonerName
+    );
+
+    const objetoNombres = Object.fromEntries(
+      testParticipants.map((nombre, indice) => [indice + 1, nombre])
+    );
+
+    console.log(objetoNombres);
+    console.log(summoner);
+
+    const testRender = testPrueba.map((info) =>
+      info
+        .map((info) =>
+          info
+            .map((element) => {
+              const { participantId, itemId, timestamp, type } = element;
+
+              return {
+                participantId,
+                itemId,
+                timestamp,
+                type,
+                objetoNombres,
+              };
+            })
+            .filter((number) => number.participantId === data)
+        )
+        .filter((elements) => elements.length > 0)
+    );
+    console.log(testRender);
+
+    setTest(testRender[0]);
+  };
+
+  return (
+    <section>
+      {participants.map((participant) => {
+        const {
+          puuid,
+          champLevel,
+          championName,
+          summonerName,
+          participantId,
+          kills,
+          assists,
+          deaths,
+          totalDamageTaken,
+          totalDamageDealtToChampions,
+          totalMinionsKilled,
+          visionWardsBoughtInGame,
+          wardsKilled,
+          wardsPlaced,
+        } = participant;
+
+        return (
+          <div
+            className={`${
+              winGroup === true ? 'victoria' : 'derrota'
+            }  div-participants-info-1 `}
+            key={puuid}
+            onClick={() => onToggle(participantId)}
+          >
+            <ImageChampionSummoner imageChampion={championName} />
+            <small className="champlevel-absolute">{champLevel}</small>
+            <h4
+              className={`${
+                summonerName === summonerName.name
+                  ? 'colorunico'
+                  : 'no-selected-username'
+              } participant-summonername`}
+            >
+              {summonerName}
+              <div className="list-items">
+                {quantityItems.map((itemIndex) => (
+                  <ImgItemsChampionsSummoners
+                    key={itemIndex}
+                    idItem={participant[`item${itemIndex}`]}
+                  />
+                ))}
+              </div>
+              <button
+                className="toogle-button"
+                onClick={() => onToggle(participantId)}
+              >
+                {expandedParticipants.includes(participantId)
+                  ? '🔼 Ocultar'
+                  : '🔽 Mostrar Mas'}
+              </button>
+              <button
+                onClick={() => ToogleTimeLines(participantId, summonerName)}
+              >
+                Items :D
+                {timelinesToogle === true ? <TimelinesSummoner /> : null}
+              </button>
             </h4>
             <div className="info-aditional">
               <h4>
@@ -136,3 +327,5 @@ function MatchGroup({
 }
 
 export default MatchGroup;
+
+*/

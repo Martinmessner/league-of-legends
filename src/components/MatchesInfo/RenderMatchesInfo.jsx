@@ -100,6 +100,7 @@ function MatchesInfoSummoners() {
             <section key={info.gameId} className="section-participants-info">
               <MatchGroup
                 participants={firstGroup}
+                totalParticipants={participants}
                 winGroup={winFirstGroup}
                 summonerName={summonerName}
                 quantityItems={quantityItems}
@@ -108,6 +109,7 @@ function MatchesInfoSummoners() {
               />
 
               <MatchGroup
+                totalParticipants={participants}
                 participants={secondGroup}
                 winGroup={winSecondGroup}
                 summonerName={summonerName}

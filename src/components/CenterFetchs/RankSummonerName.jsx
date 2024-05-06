@@ -41,18 +41,17 @@ function GetRankTierSummonerName() {
 
     if (newRankSummonerId) {
       SetrankSummonerId(newRankSummonerId);
-      setIsSearching(true); // Marcamos que se está realizando una búsqueda
+      setIsSearching(true);
     }
   }, [summonerName.name, historyMatchGames, SetrankSummonerId, setIsSearching]);
 
   useEffect(() => {
     if (rankSummonerId.length > 0 && isSearching) {
-      // Verificamos si se está realizando una búsqueda y esperamos 1 segundo antes de realizar la solicitud.
       const timeout = setTimeout(() => {
         fetchAllData();
       }, 1000);
 
-      return () => clearTimeout(timeout); // Limpiamos el temporizador si el componente se desmonta
+      return () => clearTimeout(timeout);
     }
   }, [rankSummonerId, isSearching]);
 

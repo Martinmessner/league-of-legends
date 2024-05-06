@@ -26,3 +26,16 @@ export const getHourExactlyGame = (game) => {
 
   return formattedGameEndDate;
 };
+
+export const getTimeStampsGame = (timestamps) => {
+  const minutos = [];
+
+  for (let i = 0; i < timestamps.length; i++) {
+    const milisegundos = timestamps[i];
+    const minutosItem = Math.floor(milisegundos / (1000 * 60));
+
+    minutos.push(minutosItem);
+  }
+
+  return minutos;
+};
