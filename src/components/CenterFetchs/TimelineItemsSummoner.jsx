@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import useSummonerStore from '../../store/Store';
+import { useEffect } from "react";
+import useSummonerStore from "../../store/Store";
 
 const API_KEY_VITE = import.meta.env.VITE_API_KEY;
 
@@ -17,7 +17,8 @@ function GetTimelineItems() {
       for (let puuidTimelines of puuidSummonerName) {
         try {
           const responseTimelines = await fetch(
-            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${puuidTimelines}/timeline?api_key=${API_KEY_VITE}`
+            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${puuidTimelines}/timeline?api_key=${API_KEY_VITE}`,
+            { mode: "no-cors" }
           );
           const respData = await responseTimelines.json();
           matchesIdTimelines.push(respData);

@@ -22,7 +22,8 @@ function GetRankTierSummonerName() {
   const fetchAllData = async () => {
     try {
       const responseRank = await fetch(
-        `https://${selectedRegion}.api.riotgames.com/lol/league/v4/entries/by-summoner/${rankSummonerId}?api_key=${API_KEY_VITE}`
+        `https://${selectedRegion}.api.riotgames.com/lol/league/v4/entries/by-summoner/${rankSummonerId}?api_key=${API_KEY_VITE}`,
+        { mode: "no-cors" }
       );
       const data = await responseRank.json();
       SetgetUserRankAndLP(data);

@@ -26,18 +26,19 @@ function GetSummonerName() {
     modifyContinentSelected,
   } = useSummonerStore();
 
-  //  `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
-
-  //  `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${valueSummoner}?api_key=${API_KEY_VITE}`
+  console.log(valueSummoner, selectedRegion, modifyContinentSelected);
+  console.log(summonerName);
   const fetchSummonerName = async () => {
     Setloading(true);
     toggleDisabled();
     try {
       const response = await fetch(
-        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`
+        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`,
+        { mode: "no-cors" }
       );
-
+      console.log(response);
       const data = await response.json();
+      console.log(data);
       setSummonerName(data);
     } catch (err) {
       Seterror("Error al obtener los datos del invocador.");
