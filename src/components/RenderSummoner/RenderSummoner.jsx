@@ -1,11 +1,11 @@
-import useSummonerStore from '../../store/Store';
-import GetMatchesPuuid from '../CenterFetchs/MatchesPuuid';
-import GetRankTierSummonerName from '../CenterFetchs/RankSummonerName';
-import ProfileIcon from '../helpers/ProfileIconSummoner';
+import useSummonerStore from "../../store/Store";
+import GetMatchesPuuid from "../CenterFetchs/MatchesPuuid";
+import GetRankTierSummonerName from "../CenterFetchs/RankSummonerName";
+import ProfileIcon from "../helpers/ProfileIconSummoner";
 
 function RenderSummonerName() {
   const { summonerName } = useSummonerStore();
-
+  console.log(summonerName);
   const isEmptyObject = Object.keys(summonerName).length === 0;
 
   return (

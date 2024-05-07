@@ -15,19 +15,20 @@ function GetPuuidSummoner() {
     currentPage,
     modifyContinentSelected,
   } = useSummonerStore();
-  console.log(summonerName);
+
   const { puuid } = summonerName;
+
   const [loading, setLoading] = useState(false);
-  console.log(puuid);
+  console.log(summonerName, puuid);
+
   async function fetchMatchesForPage(page) {
     try {
       setLoading(true);
       const startIndex = (page - 1) * pagination;
       const response = await fetch(
-        `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${startIndex}&count=${pagination}&api_key=${API_KEY_VITE}`,
-        { mode: "no-cors" }
+        `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${startIndex}&count=${pagination}&api_key=${API_KEY_VITE}`
       );
-
+      console.log(response);
       const puuidName = await response.json();
       setPuuidSummonerName(puuidName);
       await new Promise((resolve) => setTimeout(resolve, 2000));

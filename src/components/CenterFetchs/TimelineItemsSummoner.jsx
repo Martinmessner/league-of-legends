@@ -17,8 +17,7 @@ function GetTimelineItems() {
       for (let puuidTimelines of puuidSummonerName) {
         try {
           const responseTimelines = await fetch(
-            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${puuidTimelines}/timeline?api_key=${API_KEY_VITE}`,
-            { mode: "no-cors" }
+            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${puuidTimelines}/timeline?api_key=${API_KEY_VITE}`
           );
           const respData = await responseTimelines.json();
           matchesIdTimelines.push(respData);

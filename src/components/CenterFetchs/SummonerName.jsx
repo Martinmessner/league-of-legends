@@ -33,8 +33,7 @@ function GetSummonerName() {
     toggleDisabled();
     try {
       const response = await fetch(
-        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/${selectedRegion}?api_key=${API_KEY_VITE}`,
-        { mode: "no-cors" }
+        `https://${modifyContinentSelected}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${valueSummoner}/LAS?api_key=${API_KEY_VITE}`
       );
       console.log(response);
       const data = await response.json();

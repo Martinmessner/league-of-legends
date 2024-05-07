@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 const useSummonerStore = create((set) => ({
   pagination: 4,
@@ -9,72 +9,72 @@ const useSummonerStore = create((set) => ({
   summonerName: [],
   puuidSummonerName: [],
   historyMatchGames: [],
-  valueSummoner: '',
-  rankSummonerId: '',
+  valueSummoner: "",
+  rankSummonerId: "",
   getUserRankAndLP: {},
-  error: '',
+  error: "",
   disabled: false,
   loading: false,
   // Regiones Del Mundo Todas
   regionWorld: [
     {
-      Brasil: 'br1',
+      Brasil: "br1",
     },
     {
-      LAS: 'la2',
+      LAS: "la2",
     },
     {
-      LAN: 'la1',
+      LAN: "la1",
     },
     {
-      NorthAmerica: 'na1',
+      NorthAmerica: "na1",
     },
     {
-      Japon: 'jp1',
+      Japon: "jp1",
     },
     {
-      Korea: 'kr',
+      Korea: "kr",
     },
     {
-      EuropaOeste: 'eun1',
+      EuropaOeste: "eun1",
     },
     {
-      EuropaWest: 'euw1',
+      EuropaWest: "euw1",
     },
     {
-      Turkey: 'tr1',
+      Turkey: "tr1",
     },
     {
-      Russia: 'ru',
+      Russia: "ru",
     },
     {
-      Vietnam: 'vn2',
+      Vietnam: "vn2",
     },
     {
-      Oceania: 'oc1',
+      Oceania: "oc1",
     },
     {
-      Philippines: 'ph2',
+      Philippines: "ph2",
     },
     {
-      Singapore: 'sg2',
+      Singapore: "sg2",
     },
     {
-      Thailand: 'th2',
+      Thailand: "th2",
     },
     {
-      Taiwan: 'tw2',
+      Taiwan: "tw2",
     },
   ],
-  selectedRegion: '',
+  selectedRegion: "",
   // Continentes para las API - americas - sea - europe - asia
   regionsContinents: {
-    americas: 'Brasil, LAS, LAN, NorthAmerica',
-    sea: 'Oceania, Taiwan, Singapore, Philippines, Thailand',
-    europe: 'Turkey, Vietnam, Russia, EuropaOeste, EuropaWest',
-    asia: 'Japon, Korea',
+    americas: "Brasil, LAS, LAN, NorthAmerica",
+    sea: "Oceania, Taiwan, Singapore, Philippines, Thailand",
+    europe: "Turkey, Vietnam, Russia, EuropaOeste, EuropaWest",
+    asia: "Japon, Korea",
   },
-  modifyContinentSelected: '',
+  modifyContinentSelected: "",
   TimelineItemId: [],
   itemsPurchasedFiltered: [],
   setItemsPurchasedFiltered: (itemsFiltered) =>

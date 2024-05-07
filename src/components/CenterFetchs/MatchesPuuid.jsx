@@ -18,10 +18,10 @@ function GetMatchesPuuid() {
       for (const matchesId of puuidSummonerName) {
         try {
           const url = await fetch(
-            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${matchesId}?api_key=${API_KEY_VITE}`,
-            { mode: "no-cors" }
+            `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/${matchesId}?api_key=${API_KEY_VITE}`
           );
           const data = await url.json();
+          console.log(data, url, matchesId, puuidSummonerName);
           matchesDataArray.push(data);
         } catch (error) {
           Seterror("No Tiene Partidas Disponibles.");
