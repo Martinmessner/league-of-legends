@@ -14,19 +14,23 @@ function GetPuuidSummoner() {
     setCurrentPage,
     currentPage,
     modifyContinentSelected,
+    selectedRegion,
   } = useSummonerStore();
 
   const { puuid } = summonerName;
 
   const [loading, setLoading] = useState(false);
-  console.log(summonerName, puuid);
+
+  console.log(modifyContinentSelected, selectedRegion);
+
+  // https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY_VITE}
 
   async function fetchMatchesForPage(page) {
     try {
       setLoading(true);
       const startIndex = (page - 1) * pagination;
       const response = await fetch(
-        `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${startIndex}&count=${pagination}&api_key=${API_KEY_VITE}`
+        `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY_VITE}`
       );
       console.log(response);
       const puuidName = await response.json();
