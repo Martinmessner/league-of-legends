@@ -30,7 +30,7 @@ function GetPuuidSummoner() {
       setLoading(true);
       const startIndex = (page - 1) * pagination;
       const response = await fetch(
-        `https://${selectedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY_VITE}`
+        `https://${modifyContinentSelected}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${startIndex}&count=${pagination}&api_key=${API_KEY_VITE}`
       );
       console.log(response);
       const puuidName = await response.json();
